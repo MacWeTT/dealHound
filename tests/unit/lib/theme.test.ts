@@ -5,11 +5,21 @@ import { BOOT_SCRIPT, THEME_KEY } from '@/lib/theme';
 const bootsDark = (saved: string | null, systemDark: boolean) => {
   const classes = new Set<string>();
   const root = {
-    classList: { toggle: (name: string, on: boolean) => {return (on ? classes.add(name) : classes.delete(name))} },
+    classList: {
+      toggle: (name: string, on: boolean) => {
+        return on ? classes.add(name) : classes.delete(name);
+      },
+    },
   };
-  const storage = { getItem: (key: string) => {return (key === THEME_KEY ? saved : null)} };
+  const storage = {
+    getItem: (key: string) => {
+      return key === THEME_KEY ? saved : null;
+    },
+  };
 
-  const matchMedia = () => {return { matches: systemDark }};
+  const matchMedia = () => {
+    return { matches: systemDark };
+  };
 
   new Function('document', 'localStorage', 'matchMedia', BOOT_SCRIPT)({ documentElement: root }, storage, matchMedia);
 

@@ -1,0 +1,9 @@
+@reference '../../app/globals.css';
+
+.theme-toggle {
+  @apply fixed top-4 right-4 flex size-9 items-center justify-center rounded-full border border-(--line) text-(--ink-muted) transition-colors hover:text-(--ink) focus-visible:outline-2 focus-visible:outline-(--accent);
+}
+
+.theme-toggle__icon {
+  @apply size-4.5;
+}

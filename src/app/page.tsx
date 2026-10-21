@@ -1,11 +1,15 @@
+import { getTranslations } from 'next-intl/server';
 import '@/app/page.css';
 
-const HomePage = () => {
+const HomePage = async () => {
+  const tc = await getTranslations('common');
+  const t = await getTranslations('home');
+
   return (
     <main className="home">
-      <h1 className="home__title">dealHound</h1>
-      <p className="home__tagline">Search once, track every price, get pinged when it drops.</p>
-      <input className="home__search" type="search" placeholder="Search a product, e.g. RTX 5060 laptop" disabled />
+      <h1 className="home__title">{tc('brand')}</h1>
+      <p className="home__tagline">{t('tagline')}</p>
+      <input className="home__search" type="search" placeholder={t('searchPlaceholder')} disabled />
     </main>
   );
 };

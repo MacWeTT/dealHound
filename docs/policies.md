@@ -2,10 +2,6 @@
 
 Same norms as Cadence (`../Cadence/docs/policies.md`), enforced by `eslint.config.mjs`. Every file in `src/` and `tests/` follows them, written by a person or an agent. Run `npm run verify` before opening a PR.
 
-Differences for now:
-- **No localisation yet.** Cadence's rule 8 (text from message files via `next-intl`) is not enforced; user-facing text is written in the component. Add it when a second language or real copy volume arrives.
-- **No `e2e/` and no database.** Playwright and Supabase come with the first feature that needs them.
-
 ## Style
 1. Arrow functions with a block body and explicit `return`; braces on every `if`/`else`/`for`/`while`.
 2. Components take `props` and destructure inside the body; the props type is named (`interface XProps`).
@@ -17,6 +13,12 @@ Differences for now:
 9. No anonymous functions as props; name the handler above the `return`.
 10. Absolute imports (`@/...`, `@tests/...`); a component's own stylesheet is the only relative import.
 11. Read an object's properties once; destructure when read two or more times.
+
+## Localisation
+- Rule 8: no raw user-facing text in components, helpers or actions (ESLint `react/jsx-no-literals`, plus a rule on `aria-label`, `placeholder`, `title`, `alt`). Text lives in `locales/en/<area>.json`, merged in `locales/en/index.ts`; keys are typed, so a missing key fails the typecheck.
+- Components read text with `useTranslations('area')` (client) or `await getTranslations('area')` (server). Import messages with `@locales/...`.
+- Pure code returns a `Msg` (`msg('area.key', { name })`, see `src/lib/message.ts`); the UI turns it into text with `getMsg()`. Tests read the words with `tr()` from `tests/support/translate.ts`.
+- Plurals use ICU (`{count, plural, one {# deal} other {# deals}}`), never `count === 1 ? ...`. Only English exists; a new language is a new `locales/<lang>/` folder plus a way to pick it in `src/i18n/request.ts`.
 
 ## Architecture
 - `src/domain/`: plain TypeScript (matching, price rules, effective-price maths). No React, Next or database.

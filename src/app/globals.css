@@ -1,13 +1,38 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Project tokens (light). The .dark block overrides them; Tailwind reads them through the @theme block below. */
 :root {
   --bg: #fafaf9;
+  --surface: #ffffff;
   --ink: #1c1917;
   --ink-muted: #78716c;
   --line: #e7e5e4;
   --accent: #c2410c;
 }
 
+/* Dark: next-themes' "dark". */
+.dark {
+  --bg: #1a1816;
+  --surface: #24211f;
+  --ink: #f5f5f4;
+  --ink-muted: #a8a29e;
+  --line: #3a3633;
+  --accent: #fb923c;
+}
+
 body {
   @apply bg-(--bg) text-(--ink) antialiased;
+}
+
+/* Colours glide between the modes for the moment of the switch only (the toggle adds this class). */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease !important;
 }

@@ -57,15 +57,20 @@ const eslintConfig = defineConfig([
           message: 'Give the props type a name (interface XProps) instead of an inline type.',
         },
         {
-          // 10: imports are absolute (@/..., @tests/...); only a component's own stylesheet stays relative.
+          // 10: imports are absolute (@/..., @tests/..., @locales/...); only a component's own stylesheet stays relative.
           selector:
             ':matches(ImportDeclaration, ExportAllDeclaration, ExportNamedDeclaration, ImportExpression)[source.value=/^\\./]:not([source.value=/\\.css$/])',
-          message: 'Use an absolute import (@/..., @tests/...), not a relative one.',
+          message: 'Use an absolute import (@/..., @tests/..., @locales/...), not a relative one.',
         },
         {
           // 9: a function passed as a prop has a name (onSearchSubmit), declared above the return.
           selector: 'JSXAttribute > JSXExpressionContainer > :matches(ArrowFunctionExpression, FunctionExpression)',
           message: 'Name this handler (const onSearchSubmit = () => {...}) and pass it by name.',
+        },
+        {
+          // 8: user-facing text comes from the message files (locales/en/*.json).
+          selector: 'JSXAttribute[name.name=/^(aria-label|placeholder|title|alt)$/] > Literal[value!=""]',
+          message: 'User-facing text must come from the message files (t(...)).',
         },
         {
           // 7: styles live in CSS files (with @apply); a className holds names, not a pile of utilities.
@@ -77,6 +82,8 @@ const eslintConfig = defineConfig([
           message: 'Move these utility classes into a CSS file with @apply and use a class name here.',
         },
       ],
+      // 8: no text typed straight into JSX.
+      'react/jsx-no-literals': [STYLE, { noStrings: false, ignoreProps: true }],
     },
   },
 

@@ -2,6 +2,5 @@
 
 What is next, in order. Updated once per release.
 
-1. Light and dark mode.
-2. Port the rest of Cadence's setup (localisation).
-3. Plan: spec for the first slice (Google Shopping search, then Telegram alerts).
+1. Plan: spec for the first slice (Google Shopping search, then Telegram alerts).
+2. Build it, and publish 0.1 as the first pre-release once something works end to end.

@@ -1,0 +1,25 @@
+@reference '../../app/globals.css';
+
+.search-bar {
+  @apply flex h-14 w-[min(40rem,calc(100vw-2rem))] items-center gap-3 rounded-2xl border border-(--line) bg-(--surface) px-4 shadow-sm transition-colors focus-within:border-(--accent) focus-within:ring-2 focus-within:ring-(--accent)/25;
+}
+
+.search-bar__icon {
+  @apply size-5 shrink-0 text-(--ink-muted);
+}
+
+.search-bar__input {
+  @apply min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-(--ink-muted);
+}
+
+.search-bar__clear {
+  @apply flex size-8 shrink-0 items-center justify-center rounded-full text-(--ink-muted) transition-colors hover:bg-(--line) hover:text-(--ink) focus-visible:outline-2 focus-visible:outline-(--accent);
+}
+
+.search-bar__clear-icon {
+  @apply size-4;
+}
+
+.search-bar__hint {
+  @apply hidden size-7 shrink-0 items-center justify-center rounded-md border border-(--line) text-sm text-(--ink-muted) sm:flex;
+}

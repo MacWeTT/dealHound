@@ -1,0 +1,13 @@
+@reference '../../app/globals.css';
+
+.footer {
+  @apply flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-6 text-sm text-(--ink-muted);
+}
+
+.footer__link {
+  @apply rounded-sm underline-offset-4 hover:text-(--ink) hover:underline focus-visible:outline-2 focus-visible:outline-(--accent);
+}
+
+.footer__version {
+  @apply before:mr-2 before:content-['·'];
+}

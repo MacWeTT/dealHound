@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { ThemeProvider } from 'next-themes';
+import { BOOT_SCRIPT } from '@/lib/theme';
 import { ThemeToggle } from '@/components/theme-toggle/theme-toggle';
 import '@/app/globals.css';
 
@@ -26,12 +26,13 @@ const RootLayout = async (props: LayoutProps<'/'>) => {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
+      </head>
       <body>
         <NextIntlClientProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem themes={['light', 'dark']}>
-            <ThemeToggle />
-            {children}
-          </ThemeProvider>
+          <ThemeToggle />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

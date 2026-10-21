@@ -2,46 +2,56 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
+import { THEME_KEY } from '@/lib/theme';
 import './theme-toggle.css';
 
-const noopSubscribe = () => {
-  return () => {};
+/** The page's theme is the `dark` class on <html> (set before paint by BOOT_SCRIPT), so watch that. */
+const subscribe = (onChange: () => void) => {
+  const observer = new MutationObserver(onChange);
+
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  return () => {
+    return observer.disconnect();
+  };
+};
+
+const getIsDark = () => {
+  return document.documentElement.classList.contains('dark');
+};
+
+const getServerIsDark = () => {
+  return false;
 };
 
 /** One click flips between light and dark. The first visit follows the system setting. */
 export const ThemeToggle = () => {
-  const { resolvedTheme, setTheme } = useTheme();
   const t = useTranslations('common.theme');
 
-  // The theme is only known in the browser; render a neutral button until then to avoid a hydration mismatch.
-  const mounted = useSyncExternalStore(
-    noopSubscribe,
-    () => {
-      return true;
-    },
-    () => {
-      return false;
-    },
-  );
+  const isDark = useSyncExternalStore(subscribe, getIsDark, getServerIsDark);
 
-  const isDark = mounted && resolvedTheme === 'dark';
-  const label = !mounted ? t('toggle') : isDark ? t('toLight') : t('toDark');
+  const label = isDark ? t('toLight') : t('toDark');
   const Icon = isDark ? Sun : Moon;
 
   const onToggle = () => {
     const { classList } = document.documentElement;
 
     classList.add('theme-transition');
-    setTheme(isDark ? 'light' : 'dark');
+    classList.toggle('dark', !isDark);
     window.setTimeout(() => {
       return classList.remove('theme-transition');
     }, 400);
+
+    try {
+      localStorage.setItem(THEME_KEY, isDark ? 'light' : 'dark');
+    } catch {
+      // Private mode: the choice just lasts until the page closes.
+    }
   };
 
   return (
-    <button type="button" aria-label={label} disabled={!mounted} onClick={onToggle} className="theme-toggle">
+    <button type="button" aria-label={label} onClick={onToggle} className="theme-toggle" suppressHydrationWarning>
       <Icon aria-hidden className="theme-toggle__icon" />
     </button>
   );

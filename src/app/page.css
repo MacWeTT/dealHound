@@ -1,17 +1,17 @@
 @reference './globals.css';
 
 .home {
-  @apply mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 px-4;
+  @apply mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center gap-6 px-4;
 }
 
 .home__title {
-  @apply text-4xl font-semibold tracking-tight;
+  @apply text-5xl font-bold tracking-tight;
 }
 
 .home__tagline {
   @apply text-(--ink-muted);
 }
 
-.home__search {
-  @apply w-full rounded-lg border border-(--line) bg-(--surface) px-4 py-3 outline-none focus:border-(--accent);
+.home__title-hound {
+  @apply text-(--brand);
 }

@@ -1,0 +1,5 @@
+@reference '../../app/globals.css';
+
+.logo-mark {
+  @apply h-(--mark-size,7rem) w-auto;
+}

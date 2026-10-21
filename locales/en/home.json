@@ -1,4 +1,11 @@
 {
+  "titleDeal": "deal",
+  "titleHound": "Hound",
   "tagline": "Search once, track every price, get pinged when it drops.",
-  "searchPlaceholder": "Search a product, e.g. RTX 5060 laptop"
+  "search": {
+    "label": "Search for a product",
+    "placeholder": "Search a product, e.g. RTX 5060 laptop",
+    "clear": "Clear search",
+    "shortcut": "/"
+  }
 }

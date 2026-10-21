@@ -29,6 +29,8 @@ Differences for now:
 - Tests assert behaviour, not implementation. A flaky test is fixed or deleted.
 
 ## Process
-- Changes land by pull request into `develop`; `master` is for releases.
+- Changes land by pull request into `develop`; `main` is for releases (the live branch).
 - Commit messages are short, imperative, prefixed `feat`, `fix`, `refactor`, `docs`, `test` or `chore`.
 - Shortcuts with a known limit are marked `shortcut: <the limit>, <when to upgrade>`.
+- A PR has **What**, **Verified** and **Not done** sections, and reports anything skipped or unchecked. It is assigned to its owner and carries one label (see `AGENTS.md`).
+- Releases, tags and known issues are in `docs/workflow.md`.

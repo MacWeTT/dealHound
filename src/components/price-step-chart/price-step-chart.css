@@ -1,0 +1,66 @@
+@reference '../../app/globals.css';
+
+.price-step-chart {
+  @apply flex flex-col gap-4 rounded-2xl border border-(--line) bg-(--surface) p-5;
+}
+
+.price-step-chart__header {
+  @apply flex flex-wrap items-center justify-between gap-2;
+}
+
+.price-step-chart__title {
+  @apply text-base font-semibold text-(--ink);
+}
+
+.price-step-chart__verdict {
+  @apply rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+.price-step-chart__verdict--good {
+  @apply bg-(--deal-good-bg) text-(--deal-good);
+}
+
+.price-step-chart__verdict--warn {
+  @apply bg-(--deal-warn-bg) text-(--deal-warn);
+}
+
+.price-step-chart__verdict--neutral {
+  @apply bg-(--surface-muted) text-(--ink-muted);
+}
+
+.price-step-chart__reason {
+  @apply text-xs text-(--ink-muted);
+}
+
+.price-step-chart__hike-alert {
+  @apply rounded-xl border border-(--deal-warn) bg-(--deal-warn-bg) px-3.5 py-2.5 text-xs font-medium text-(--deal-warn);
+}
+
+.price-step-chart__stats {
+  @apply grid grid-cols-2 gap-3 sm:grid-cols-4;
+}
+
+.price-step-chart__stat {
+  @apply flex flex-col gap-0.5 rounded-xl bg-(--surface-muted) p-3;
+}
+
+.price-step-chart__stat-label {
+  @apply text-xs text-(--ink-muted);
+}
+
+.price-step-chart__stat-value {
+  @apply text-sm font-bold text-(--ink);
+}
+
+.price-step-chart__canvas {
+  @apply w-full overflow-hidden rounded-xl border border-(--line) bg-(--bg) p-2;
+}
+
+.price-step-chart__svg {
+  @apply h-48 w-full;
+}
+
+.price-step-chart__legend {
+  @apply flex flex-wrap items-center justify-between gap-2 text-xs text-(--ink-muted);
+}
+

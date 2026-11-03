@@ -1,0 +1,78 @@
+@reference '../../app/globals.css';
+
+.product-card {
+  @apply flex flex-col justify-between gap-4 rounded-2xl border border-(--line) bg-(--surface) p-5 transition-colors hover:border-(--accent);
+}
+
+.product-card__meta {
+  @apply flex flex-wrap items-center justify-between gap-2 text-xs;
+}
+
+.product-card__stores {
+  @apply font-medium text-(--ink-muted);
+}
+
+.product-card__verdict {
+  @apply rounded-full px-2.5 py-0.5 font-semibold;
+}
+
+.product-card__verdict--good {
+  @apply bg-(--deal-good-bg) text-(--deal-good);
+}
+
+.product-card__verdict--warn {
+  @apply bg-(--deal-warn-bg) text-(--deal-warn);
+}
+
+.product-card__verdict--neutral {
+  @apply bg-(--surface-muted) text-(--ink-muted);
+}
+
+.product-card__title {
+  @apply text-base font-semibold leading-snug text-(--ink);
+}
+
+.product-card__specs {
+  @apply flex flex-wrap gap-1.5 text-xs;
+}
+
+.product-card__spec {
+  @apply rounded-md border border-(--line) bg-(--surface-muted) px-2 py-0.5 text-(--ink-muted);
+}
+
+.product-card__pricing {
+  @apply grid grid-cols-1 gap-3 rounded-xl bg-(--surface-muted) p-3.5 sm:grid-cols-2;
+}
+
+.product-card__price-col {
+  @apply flex flex-col gap-0.5;
+}
+
+.product-card__price-caption {
+  @apply text-xs text-(--ink-muted);
+}
+
+.product-card__price-main {
+  @apply text-xl font-bold tracking-tight text-(--ink);
+}
+
+.product-card__price-card {
+  @apply text-xl font-bold tracking-tight text-(--deal-good);
+}
+
+.product-card__store-note {
+  @apply text-xs text-(--ink-muted);
+}
+
+.product-card__footer {
+  @apply flex items-center justify-between gap-3 border-t border-(--line) pt-3 text-xs;
+}
+
+.product-card__median {
+  @apply text-(--ink-muted);
+}
+
+.product-card__cta {
+  @apply font-semibold text-(--accent) hover:underline;
+}
+

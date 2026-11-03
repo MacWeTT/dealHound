@@ -1,0 +1,22 @@
+@reference '../../app/globals.css';
+
+.wallet-selector {
+  @apply flex flex-wrap items-center gap-2 rounded-xl border border-(--line) bg-(--surface) px-3.5 py-2.5 text-xs;
+}
+
+.wallet-selector__label {
+  @apply font-semibold text-(--ink);
+}
+
+.wallet-selector__pill {
+  @apply rounded-full border border-(--line) bg-(--surface-muted) px-2.5 py-1 font-medium text-(--ink-muted) transition-colors hover:border-(--accent) hover:text-(--ink);
+}
+
+.wallet-selector__pill--active {
+  @apply border-(--accent) bg-(--accent-soft) text-(--accent);
+}
+
+.wallet-selector__clear {
+  @apply ml-auto font-medium text-(--ink-muted) underline hover:text-(--ink);
+}
+

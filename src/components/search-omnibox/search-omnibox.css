@@ -1,0 +1,30 @@
+@reference '../../app/globals.css';
+
+.search-omnibox {
+  @apply flex w-full flex-col gap-3;
+}
+
+.search-omnibox__form {
+  @apply flex w-full flex-col gap-2 sm:flex-row;
+}
+
+.search-omnibox__input {
+  @apply w-full rounded-xl border border-(--line) bg-(--surface) px-4 py-3 text-base text-(--ink) outline-none transition-colors focus:border-(--accent);
+}
+
+.search-omnibox__submit {
+  @apply shrink-0 cursor-pointer rounded-xl bg-(--accent) px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-(--accent-hover);
+}
+
+.search-omnibox__chips {
+  @apply flex flex-wrap items-center gap-2 text-xs;
+}
+
+.search-omnibox__hint {
+  @apply text-(--ink-muted);
+}
+
+.search-omnibox__chip {
+  @apply rounded-full border border-(--line) bg-(--surface) px-2.5 py-1 text-(--ink-muted) transition-colors hover:border-(--accent) hover:text-(--ink);
+}
+

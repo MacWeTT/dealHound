@@ -1,0 +1,78 @@
+@reference '../../app/globals.css';
+
+.offer-table {
+  @apply flex flex-col gap-3;
+}
+
+.offer-table__row {
+  @apply flex flex-col justify-between gap-4 rounded-2xl border border-(--line) bg-(--surface) p-4 sm:flex-row sm:items-center;
+}
+
+.offer-table__row--winner {
+  @apply border-(--deal-good);
+}
+
+.offer-table__merchant {
+  @apply flex flex-col gap-1;
+}
+
+.offer-table__merchant-top {
+  @apply flex flex-wrap items-center gap-2;
+}
+
+.offer-table__store-name {
+  @apply text-base font-semibold text-(--ink);
+}
+
+.offer-table__badge-win {
+  @apply rounded-full bg-(--deal-good-bg) px-2 py-0.5 text-xs font-semibold text-(--deal-good);
+}
+
+.offer-table__badge-card {
+  @apply rounded-full bg-(--accent-soft) px-2 py-0.5 text-xs font-semibold text-(--accent);
+}
+
+.offer-table__raw-title {
+  @apply max-w-xl text-xs text-(--ink-muted);
+}
+
+.offer-table__adjustments {
+  @apply flex flex-wrap gap-1.5 pt-1 text-xs;
+}
+
+.offer-table__rule-fee {
+  @apply rounded-md bg-(--deal-warn-bg) px-2 py-0.5 text-(--deal-warn);
+}
+
+.offer-table__rule-discount {
+  @apply rounded-md bg-(--deal-good-bg) px-2 py-0.5 text-(--deal-good);
+}
+
+.offer-table__freshness {
+  @apply text-xs text-(--ink-muted);
+}
+
+.offer-table__numbers {
+  @apply flex shrink-0 items-center gap-5 sm:text-right;
+}
+
+.offer-table__price-stack {
+  @apply flex flex-col gap-0.5;
+}
+
+.offer-table__sticker {
+  @apply text-xs text-(--ink-muted);
+}
+
+.offer-table__unconditional {
+  @apply text-lg font-bold text-(--ink);
+}
+
+.offer-table__conditional {
+  @apply text-xs font-semibold text-(--deal-good);
+}
+
+.offer-table__buy {
+  @apply shrink-0 rounded-xl bg-(--ink) px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-(--accent);
+}
+

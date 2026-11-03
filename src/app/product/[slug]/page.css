@@ -1,0 +1,50 @@
+@reference '../../globals.css';
+
+.product-page {
+  @apply mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8;
+}
+
+.product-page__back {
+  @apply text-xs font-semibold text-(--ink-muted) hover:text-(--ink);
+}
+
+.product-page__hero {
+  @apply flex flex-col gap-4 rounded-2xl border border-(--line) bg-(--surface) p-6;
+}
+
+.product-page__title {
+  @apply text-2xl font-bold tracking-tight text-(--ink);
+}
+
+.product-page__summary-grid {
+  @apply grid grid-cols-1 gap-4 rounded-xl bg-(--surface-muted) p-4 sm:grid-cols-2;
+}
+
+.product-page__price-box {
+  @apply flex flex-col gap-1;
+}
+
+.product-page__price-label {
+  @apply text-xs font-medium text-(--ink-muted);
+}
+
+.product-page__price-value {
+  @apply text-2xl font-bold text-(--ink);
+}
+
+.product-page__price-card {
+  @apply text-2xl font-bold text-(--deal-good);
+}
+
+.product-page__price-sub {
+  @apply text-xs text-(--ink-muted);
+}
+
+.product-page__section {
+  @apply flex flex-col gap-3;
+}
+
+.product-page__section-title {
+  @apply text-lg font-bold tracking-tight text-(--ink);
+}
+

@@ -1,0 +1,54 @@
+@reference '../../app/globals.css';
+
+.watch-card {
+  @apply flex flex-col justify-between gap-4 rounded-2xl border border-(--line) bg-(--surface) p-5 sm:flex-row sm:items-center;
+}
+
+.watch-card__info {
+  @apply flex flex-col gap-1.5;
+}
+
+.watch-card__top {
+  @apply flex flex-wrap items-center gap-2;
+}
+
+.watch-card__label {
+  @apply text-base font-semibold text-(--ink);
+}
+
+.watch-card__state {
+  @apply rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase;
+}
+
+.watch-card__state--armed {
+  @apply bg-(--deal-good-bg) text-(--deal-good);
+}
+
+.watch-card__state--triggered {
+  @apply bg-(--accent-soft) text-(--accent);
+}
+
+.watch-card__state--paused {
+  @apply bg-(--surface-muted) text-(--ink-muted);
+}
+
+.watch-card__details {
+  @apply text-xs text-(--ink-muted);
+}
+
+.watch-card__webhook {
+  @apply font-mono text-xs text-(--ink-muted);
+}
+
+.watch-card__actions {
+  @apply flex flex-wrap items-center gap-2;
+}
+
+.watch-card__btn {
+  @apply cursor-pointer rounded-xl border border-(--line) bg-(--surface-muted) px-3 py-1.5 text-xs font-semibold text-(--ink) transition-colors hover:border-(--accent);
+}
+
+.watch-card__btn--danger {
+  @apply text-(--deal-warn) hover:border-(--deal-warn);
+}
+

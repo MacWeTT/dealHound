@@ -1,0 +1,42 @@
+@reference '../../app/globals.css';
+
+.watch-form {
+  @apply flex flex-col gap-3.5 rounded-2xl border border-(--line) bg-(--surface) p-5;
+}
+
+.watch-form__title {
+  @apply text-base font-semibold text-(--ink);
+}
+
+.watch-form__subtitle {
+  @apply text-xs text-(--ink-muted);
+}
+
+.watch-form__grid {
+  @apply grid grid-cols-1 gap-3 sm:grid-cols-2;
+}
+
+.watch-form__field {
+  @apply flex flex-col gap-1;
+}
+
+.watch-form__label {
+  @apply text-xs font-medium text-(--ink);
+}
+
+.watch-form__input {
+  @apply rounded-xl border border-(--line) bg-(--bg) px-3 py-2 text-sm text-(--ink) outline-none focus:border-(--accent);
+}
+
+.watch-form__submit {
+  @apply cursor-pointer rounded-xl bg-(--accent) px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-(--accent-hover) disabled:opacity-60;
+}
+
+.watch-form__feedback-ok {
+  @apply rounded-xl bg-(--deal-good-bg) px-3 py-2 text-xs font-medium text-(--deal-good);
+}
+
+.watch-form__feedback-err {
+  @apply rounded-xl bg-(--deal-warn-bg) px-3 py-2 text-xs font-medium text-(--deal-warn);
+}
+

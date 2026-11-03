@@ -6,6 +6,12 @@ const at = (folder: string) => {
 };
 
 export default defineConfig({
-  resolve: { alias: { '@tests': at('./tests'), '@': at('./src') } },
+  resolve: {
+    alias: {
+      '@tests': at('./tests'),
+      '@': at('./src'),
+      'server-only': at('./tests/stubs/server-only.ts'),
+    },
+  },
   test: { environment: 'node', include: ['tests/unit/**/*.test.ts'] },
 });
